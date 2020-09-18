@@ -14,6 +14,7 @@ let PORT = 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+//Tells express that Public is the root directory to pull static files from
 app.use(express.static("public"))
 
 
@@ -22,9 +23,8 @@ app.use(express.static("public"))
 app.get("/api/notes", function (req, res) {
   res.json(db);
 });
-//pulls the note and posts it in the db.json file
+//pulls the note and writes it in the db.json file
 app.post("/api/notes", function (req, res) {
-
 
   fs.readFile("db/db.json", "utf-8", function (err, data) {
     if (err) throw err
@@ -44,6 +44,7 @@ app.post("/api/notes", function (req, res) {
 
 
   });
+  //the route to delete a note using a unique ID
   app.delete("/api/notes/:id", function (req, res) {
     fs.readFile("db/db.json", "utf-8", function (err, data) {
       if (err) throw err
@@ -52,17 +53,13 @@ app.post("/api/notes", function (req, res) {
       fs.writeFile("db/db.json", JSON.stringify(newNotes), function (err, data) {
         if (err) throw err
         res.json(data);
+        //this refreshes the page after action. DOES NOT WORK YET
         return res.redirect("/notes")
       })
       
     })
     
   })
-
-
-
-
-
 
 
   //HTML routes
