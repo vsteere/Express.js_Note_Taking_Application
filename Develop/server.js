@@ -2,6 +2,7 @@
 let express = require("express");
 let fs = require("fs");
 let db = require("./db/db.json");
+let path = require("path");
 
 //Express Server
 let work = express();
@@ -16,19 +17,19 @@ work.use(express.json());
 //HTML routes
 
 work.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "notes.html"));
+    res.sendFile(path.join(__dirname, "./public/notes.html"));
   });
 
 work.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "./public/index.html"));
   });
 
 // //API routes
 // //this gets the db.json file and returns the saved notes as JSON
+work.get("/api/notes", function(req, res) {
+    res.json(db);
+  });
 
-// work.get("/api/notes", function(req, res) {
-//     res.json(db);
-//   });
 
 
 
