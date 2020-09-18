@@ -1,0 +1,26 @@
+{
+  "name": "Express.js_Note_Taking_Application",
+  "version": "1.0.0",
+  "description": "## Description",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "i": "^0.3.6",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vsteere/Express.js_Note_Taking_Application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vsteere/Express.js_Note_Taking_Application/issues"
+  },
+  "homepage": "https://github.com/vsteere/Express.js_Note_Taking_Application#readme"
+}
