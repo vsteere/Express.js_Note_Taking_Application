@@ -7,8 +7,8 @@ const { error } = require("console");
 
 //Express Server
 let app = express();
-
-let PORT = 3000;
+//this will allow Heroku to set the port
+let PORT = process. env. PORT || 3000;
 
 //sets up Express to handle data
 
