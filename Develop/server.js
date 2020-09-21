@@ -28,8 +28,8 @@ app.post("/api/notes", function (req, res) {
   fs.readFile("db/db.json", "utf-8", function (err, data) {
     if (err) throw err
     let newData = JSON.parse(data);
-    let newNote = { id: db.length + 1, title: req.body.title, text: req.body.text }
-    newData.push(newNote);
+    let addNote = { id: db.length + 1, title: req.body.title, text: req.body.text }
+    newData.push(addNote);
     console.log(newData)
     fs.writeFile("db/db.json", JSON.stringify(newData), function (err, data) {
       if (err) throw err
