@@ -37,7 +37,7 @@ app.post("/api/notes", function (req, res) {
       // res.redirect("/notes");
       // fs.readFile("db/db.json", "utf-8", function (err, data) {
       if (err) throw err
-      res.json(data);
+      res.end(data);
 
       })
     })
@@ -52,9 +52,8 @@ app.post("/api/notes", function (req, res) {
       let newNotes = newData.filter(note => note.id != req.params.id)
       fs.writeFile("db/db.json", JSON.stringify(newNotes), function (err, data) {
         if (err) throw err
-        res.json(data);
-        //this refreshes the page after action. DOES NOT WORK YET
-        return res.redirect("/notes")
+        res.end(data);
+        
       })
       
     })
