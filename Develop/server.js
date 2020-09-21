@@ -15,8 +15,7 @@ let PORT = process. env. PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 //Tells express that Public is the root directory to pull static files from
-app.use(express.static("public"))
-
+app.use(express.static(path.join(__dirname, "public")))
 
 // //API routes
 // //this gets the db.json file and returns the saved notes as JSON
